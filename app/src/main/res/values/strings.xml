@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Delivery</string>
+    <string name="example_text_buy_button">от 350 р</string>
+    <string name="example_text_description">Description</string>
+    <string name="example_text_title">Pizza</string>
+    <string name="main_recycler_item_buy_button_corner_radius">8dp</string>
 </resources>
