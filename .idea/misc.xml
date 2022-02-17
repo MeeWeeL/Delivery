@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/layout/main_menu_recycler_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/drawable/bottom_navigation_view_selector.xml" value="0.3527777777777778" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/drawable/main_recycler_categories_background_color_selector.xml" value="0.3527777777777778" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/drawable/main_recycler_categories_selector.xml" value="0.3527777777777778" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/drawable/main_recycler_categories_text_color_selector.xml" value="0.3527777777777778" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/layout/banners_layout.xml" value="0.23215523215523215" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/layout/main_menu_recycler_item.xml" value="0.33" />
+        <entry key="..\:/Users/Me/AndroidStudioProjects/Delivery/app/src/main/res/menu/main_bottom_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

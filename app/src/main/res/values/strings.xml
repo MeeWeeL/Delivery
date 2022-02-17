@@ -4,4 +4,18 @@
     <string name="example_text_description">Description</string>
     <string name="example_text_title">Pizza</string>
     <string name="main_recycler_item_buy_button_corner_radius">8dp</string>
+    <string name="pizza">Pizza</string>
+    <string name="combo">Combo</string>
+    <string name="deserts">Deserts</string>
+    <string name="water">Water</string>
+    <string name="bottom_navigation_bag_text">Корзина</string>
+    <string name="bottom_navigation_profile_text">Профиль</string>
+    <string name="bottom_navigation_menu_text">Меню</string>
+
+    <string-array name="city_names">
+        <item>Moscow</item>
+        <item>Petersburg</item>
+        <item>Rostov</item>
+        <item>Pacific Land</item>
+    </string-array>
 </resources>

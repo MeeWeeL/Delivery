@@ -7,5 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
     <color name="main_recycler_item_buy_button_color">#F3346A</color>
+
+    <color name="main_app_bar_color">#00000000</color>
+
+<!--  Selectors  -->
+    <color name="main_recycler_categories_text_color_selector_true">#ffF3346A</color>
+    <color name="main_recycler_categories_text_color_selector_false">@android:color/tab_indicator_text</color>
+    <color name="main_recycler_categories_background_color_selector_true">#35F3346A</color>
+    <color name="main_recycler_categories_background_color_selector_false">#05F3346A</color>
+    <color name="bottom_navigation_view_checked_color">#F3346A</color>
+    <color name="bottom_navigation_view_not_checked_color">#979797</color>
 </resources>

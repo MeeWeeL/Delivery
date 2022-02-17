@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!--  Main recycler item elements styles  -->
     <style name="main_recycler_item_picture_style">
         <item name="android:layout_width">@dimen/_0</item>
         <item name="android:layout_height">@dimen/main_recycler_item_picture_height</item>
@@ -15,6 +17,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/main_recycler_item_title_text_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/main_recycler_item_title_margin_top</item>
         <item name="layout_constraintHorizontal_weight">7</item>
     </style>
     <style name="main_recycler_item_description_style">
@@ -35,5 +38,38 @@
         <item name="android:textColor">@color/main_recycler_item_buy_button_color</item>
         <item name="cornerRadius">@string/main_recycler_item_buy_button_corner_radius</item>
         <item name="textAllCaps">false</item>
+    </style>
+
+<!--  Main recycler chips style  -->
+    <style name="main_recycler_categories_chip_style" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipCornerRadius">@dimen/main_recycler_categories_chip_corner_radius</item>
+        <item name="android:textColor">@drawable/main_recycler_categories_text_color_selector</item>
+        <item name="chipBackgroundColor">@drawable/main_recycler_categories_background_color_selector</item>
+        <item name="android:textSize">@dimen/main_chip_text_size</item>
+        <item name="chipStartPadding">@dimen/main_chip_start_padding</item>
+        <item name="chipEndPadding">@dimen/main_chip_end_padding</item>
+        <item name="android:layout_marginStart">@dimen/main_chip_margin_start</item>
+    </style>
+
+<!--  Banner style  -->
+    <style name="banner_style">
+        <item name="android:layout_width">@dimen/banner_width</item>
+        <item name="android:layout_height">@dimen/banner_height</item>
+    </style>
+    <style name="banner_style.card_view">
+        <item name="cardCornerRadius">@dimen/banner_corner_radius</item>
+        <item name="android:layout_margin">@dimen/banner_margin</item>
+        <item name="android:elevation">@dimen/banner_elevation</item>
+    </style>
+
+<!--  Bottom navigation view style  -->
+    <style name="bottom_navigation_bar_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="itemIconTint">@drawable/bottom_navigation_view_selector</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_view_selector</item>
     </style>
 </resources>

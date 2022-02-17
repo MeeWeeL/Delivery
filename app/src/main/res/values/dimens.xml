@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--  Main recycler  -->
     <dimen name="main_recycler_item_title_text_size">22sp</dimen>
     <dimen name="main_recycler_item_picture_height">180dp</dimen>
     <dimen name="main_recycler_item_description_text_size">16sp</dimen>
@@ -7,5 +8,26 @@
     <dimen name="main_recycler_item_description_margin_top">5dp</dimen>
     <dimen name="main_recycler_item_description_margin_bottom">5dp</dimen>
     <dimen name="main_recycler_item_buy_button_margin_end">10dp</dimen>
+    <dimen name="main_recycler_item_title_margin_top">16dp</dimen>
+
     <dimen name="_0">0dp</dimen>
+
+    <dimen name="main_spinner_margin_start">10dp</dimen>
+    <dimen name="main_qr_margin_end">5dp</dimen>
+    <dimen name="main_frame_height">60dp</dimen>
+    <dimen name="main_app_bar_height">190dp</dimen>
+
+<!--  Main categories chips  -->
+    <dimen name="main_chip_text_size">22dp</dimen>
+    <dimen name="main_chip_start_padding">12dp</dimen>
+    <dimen name="main_chip_end_padding">12dp</dimen>
+    <dimen name="main_chip_margin_start">5dp</dimen>
+    <dimen name="main_recycler_categories_chip_corner_radius">6dp</dimen>
+
+<!--  Banners  -->
+    <dimen name="banner_corner_radius">12dp</dimen>
+    <dimen name="banner_margin">10dp</dimen>
+    <dimen name="banner_elevation">10dp</dimen>
+    <dimen name="banner_width">240dp</dimen>
+    <dimen name="banner_height">100dp</dimen>
 </resources>
