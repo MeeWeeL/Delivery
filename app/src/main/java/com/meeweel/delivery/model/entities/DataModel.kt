@@ -1,4 +1,4 @@
-package com.meeweel.delivery.model
+package com.meeweel.delivery.model.entities
 
 class DataModel(
     val title: String,

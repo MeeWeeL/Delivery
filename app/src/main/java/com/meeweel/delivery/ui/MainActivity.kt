@@ -3,9 +3,11 @@ package com.meeweel.delivery.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.get
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.meeweel.delivery.R
 import com.meeweel.delivery.databinding.ActivityMainBinding
 import com.meeweel.delivery.model.AppState
 
@@ -25,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViews()
+
+        binding.navBar.menu.findItem(R.id.bottom_menu_item_menu).setOnMenuItemClickListener {
+            viewModel.getData(false)
+            return@setOnMenuItemClickListener true
+        }
     }
 
     private fun initViews() {

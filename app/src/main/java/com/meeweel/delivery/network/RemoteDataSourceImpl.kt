@@ -1,7 +1,7 @@
 package com.meeweel.delivery.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.meeweel.delivery.model.DataModel
+import com.meeweel.delivery.model.entities.DataModel
 import com.meeweel.delivery.model.Mapper
 import com.meeweel.delivery.repository.DataSource
 import okhttp3.Interceptor

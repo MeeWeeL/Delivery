@@ -1,5 +1,7 @@
 package com.meeweel.delivery.model
 
+import com.meeweel.delivery.model.entities.DataModel
+
 sealed class AppState {
 
     data class Success(val data: List<DataModel>?) : AppState()

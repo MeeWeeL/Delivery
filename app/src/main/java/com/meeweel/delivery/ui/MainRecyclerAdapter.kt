@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.meeweel.delivery.databinding.MainMenuRecyclerItemBinding
-import com.meeweel.delivery.model.DataModel
+import com.meeweel.delivery.model.entities.DataModel
 
 class MainRecyclerAdapter :
     RecyclerView.Adapter<MainRecyclerAdapter.RecyclerItemViewHolder>() {

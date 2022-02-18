@@ -1,15 +1,24 @@
 package com.meeweel.delivery.repository
 
-import com.meeweel.delivery.model.DataModel
+import com.meeweel.delivery.model.entities.DataModel
 import com.meeweel.delivery.network.RemoteDataSourceImpl
+import com.meeweel.delivery.room.LocalDataSourceImpl
+import kotlinx.coroutines.*
 
-class RepositoryImpl(private val remote: DataSource<List<DataModel>> = RemoteDataSourceImpl()) : Repository {
+class RepositoryImpl(
+    private val remote: DataSource<List<DataModel>> = RemoteDataSourceImpl(),
+    private val local: DataSource<List<DataModel>> = LocalDataSourceImpl()
+) : Repository {
 
-    override fun insertData(list: List<DataModel>) {
-        TODO("Not yet implemented")
+    override suspend fun getData(isOnline: Boolean): List<DataModel> {
+        return if (isOnline) {
+            remote
+        } else {
+            local
+        }.getData()
     }
 
-    override suspend fun getData(): List<DataModel> {
-        return remote.getData()
+    override fun insert(list: List<DataModel>) {
+        local.insertData(list)
     }
 }

@@ -1,7 +1,6 @@
 package com.meeweel.delivery.network
 
-import com.meeweel.delivery.model.DataModel
-import com.meeweel.delivery.model.NetworkDTO
+import com.meeweel.delivery.model.entities.NetworkDTO
 import retrofit2.http.GET
 import retrofit2.http.Query
 

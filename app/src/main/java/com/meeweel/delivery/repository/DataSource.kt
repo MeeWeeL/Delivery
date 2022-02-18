@@ -1,6 +1,6 @@
 package com.meeweel.delivery.repository
 
-import com.meeweel.delivery.model.DataModel
+import com.meeweel.delivery.model.entities.DataModel
 
 interface DataSource<T> {
 

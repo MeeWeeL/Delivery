@@ -1,4 +1,4 @@
-package com.meeweel.delivery.model
+package com.meeweel.delivery.model.entities
 
 data class NetworkDTO(
     val category: String,
