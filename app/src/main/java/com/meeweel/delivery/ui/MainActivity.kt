@@ -11,7 +11,7 @@ import com.meeweel.delivery.model.AppState
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by lazy {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
     private fun initViews() {
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
         binding.mainRecyclerView.adapter = adapter
-        viewModel.getData().observe(this, observer)
-        viewModel.findList()
+        viewModel.getLiveData().observe(this, observer)
+        viewModel.getData(true)
     }
 
     private fun renderData(data: AppState) = when (data) {
