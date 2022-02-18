@@ -8,13 +8,7 @@ import com.meeweel.delivery.repository.DataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
-class LocalDataSourceImpl(
-    dbStorage: DBStorage = Room.databaseBuilder(
-        App.ContextHolder.context,
-        DBStorage::class.java,
-        "EntityDB"
-    ).build()
-) : DataSource<List<DataModel>> {
+class LocalDataSourceImpl(dbStorage: DBStorage) : DataSource<List<DataModel>> {
 
     private val map = Mapper()
     private val db = dbStorage.getEntityDao()

@@ -1,9 +1,8 @@
 package com.meeweel.delivery.repository
 
-import com.meeweel.delivery.model.entities.DataModel
 
-interface Repository {
+interface Repository<T> {
 
-    fun insert(list: List<DataModel>)
-    suspend fun getData(isOnline: Boolean) : List<DataModel>
+    fun insert(list: T)
+    suspend fun getData(isOnline: Boolean) : T
 }

@@ -10,13 +10,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.meeweel.delivery.R
 import com.meeweel.delivery.databinding.ActivityMainBinding
 import com.meeweel.delivery.model.AppState
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+    private lateinit var viewModel: MainViewModel
+
+
+//    by lazy {
+//        ViewModelProvider(this).get(MainViewModel::class.java)
+//    }
     private val adapter: MainRecyclerAdapter = MainRecyclerAdapter()
     private val observer = Observer<AppState> {
         renderData(it)
@@ -37,6 +41,8 @@ class MainActivity : AppCompatActivity() {
     private fun initViews() {
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
         binding.mainRecyclerView.adapter = adapter
+        val model: MainViewModel by viewModel()
+        viewModel = model
         viewModel.getLiveData().observe(this, observer)
         viewModel.getData(true)
     }

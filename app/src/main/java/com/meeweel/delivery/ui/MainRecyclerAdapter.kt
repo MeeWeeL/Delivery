@@ -47,7 +47,7 @@ class MainRecyclerAdapter :
                 if (data.form == DataModel.Form.PIZZA) {
                     binding.itemTitle.text = data.title
                     binding.itemDescription.text = data.description
-                    binding.itemBuyButton.setText("от ${data.price} р")
+                    binding.itemBuyButton.text = "от ${data.price} р"
                 }
             }
         }

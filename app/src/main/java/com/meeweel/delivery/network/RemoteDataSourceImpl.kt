@@ -10,7 +10,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RemoteDataSourceImpl(val map: Mapper = Mapper()) : DataSource<List<DataModel>> {
+class RemoteDataSourceImpl(private val map: Mapper = Mapper()) : DataSource<List<DataModel>> {
 
     override fun insertData(list: List<DataModel>) {
         TODO("Not yet implemented")

@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.meeweel.delivery.model.AppState
+import com.meeweel.delivery.model.entities.DataModel
 import com.meeweel.delivery.repository.Repository
 import com.meeweel.delivery.repository.RepositoryImpl
 import kotlinx.coroutines.*
 import okhttp3.internal.wait
 
 class MainViewModel(
-    private val repository: Repository = RepositoryImpl()
+    private val repository: RepositoryImpl
 ) : ViewModel() {
 
     private val viewModelCoroutineScope = CoroutineScope(
