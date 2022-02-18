@@ -17,6 +17,7 @@
     <dimen name="main_frame_height">60dp</dimen>
     <dimen name="main_app_bar_height">190dp</dimen>
 
+    <dimen name="main_recycler_item_buy_button_corner_radius">8dp</dimen>
 <!--  Main categories chips  -->
     <dimen name="main_chip_text_size">22dp</dimen>
     <dimen name="main_chip_start_padding">12dp</dimen>
