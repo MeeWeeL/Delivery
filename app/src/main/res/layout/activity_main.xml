@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -122,4 +122,18 @@
             app:menu="@menu/main_bottom_menu"
             style="@style/bottom_navigation_bar_style" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
 </LinearLayout>

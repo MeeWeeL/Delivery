@@ -1,18 +1,23 @@
-package com.meeweel.delivery
+package com.meeweel.delivery.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.meeweel.delivery.databinding.MainMenuRecyclerItemBinding
+import com.meeweel.delivery.model.DataModel
 
 class MainRecyclerAdapter :
     RecyclerView.Adapter<MainRecyclerAdapter.RecyclerItemViewHolder>() {
 
-    private var data: List<String> = listOf()
+    private var data: List<DataModel> = listOf()
 
-    fun setData(data: List<String>) {
-        this.data = data
+    fun setData(data: List<DataModel>?) {
+        if (data != null) {
+            this.data = data
+        } else {
+            this.data = listOf()
+        }
         notifyDataSetChanged()
     }
 
@@ -36,9 +41,14 @@ class MainRecyclerAdapter :
 
     inner class RecyclerItemViewHolder(private val binding: MainMenuRecyclerItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: String) {
+        @SuppressLint("SetTextI18n")
+        fun bind(data: DataModel) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                binding.itemTitle.text = data
+                if (data.form == DataModel.Form.PIZZA) {
+                    binding.itemTitle.text = data.title
+                    binding.itemDescription.text = data.description
+                    binding.itemBuyButton.setText("от ${data.price} р")
+                }
             }
         }
     }
