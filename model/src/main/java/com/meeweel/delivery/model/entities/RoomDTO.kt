@@ -9,6 +9,6 @@ data class RoomDTO(
     @PrimaryKey(autoGenerate = false)
     val name: String,
     val category: String,
-    val description: String?,
+    val description: String,
     val price: Int
 )

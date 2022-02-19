@@ -5,16 +5,18 @@ import com.meeweel.delivery.model.entities.NetworkDTO
 import com.meeweel.delivery.model.entities.RoomDTO
 
 // Выбрал неудачный API, который не предоставляет картинки
-val pizzaPic = arrayOf("https://static.tildacdn.com/tild3635-3633-4162-b035-633639383734/pizza-1.png",
-"https://catherineasquithgallery.com/uploads/posts/2021-03/1614548194_3-p-pitstsa-na-belom-fone-5.jpg",
-"https://trattoriauno.ru/assets/images/pizza/gornayanew.png")
+val pizzaPic = arrayOf(
+    "https://static.tildacdn.com/tild3635-3633-4162-b035-633639383734/pizza-1.png",
+    "https://catherineasquithgallery.com/uploads/posts/2021-03/1614548194_3-p-pitstsa-na-belom-fone-5.jpg",
+    "https://trattoriauno.ru/assets/images/pizza/gornayanew.png")
 val desertPic = arrayOf(
     "https://mykaleidoscope.ru/uploads/posts/2020-01/1579896921_37-p-deserti-s-shokoladom-90.jpg",
     "https://mykaleidoscope.ru/uploads/posts/2020-03/1583187672_31-p-tsvetnie-deserti-98.jpg",
     "https://mykaleidoscope.ru/uploads/posts/2020-01/1579909802_30-p-krasivie-italyanskie-deserti-69.jpg")
-val waterPic = arrayOf("https://celestra.ru/uploads/photos/large/20.png",
-"https://www.cocktail-db.com/stat/img/1280/RedCurrantCosmo.jpg",
-"https://images.saymedia-content.com/.image/t_share/MTc5MTEzMDc5Mzk1NTkxMjEz/how-to-make-diet-shakes.jpg")
+val waterPic = arrayOf(
+    "https://celestra.ru/uploads/photos/large/20.png",
+    "https://www.cocktail-db.com/stat/img/1280/RedCurrantCosmo.jpg",
+    "https://images.saymedia-content.com/.image/t_share/MTc5MTEzMDc5Mzk1NTkxMjEz/how-to-make-diet-shakes.jpg")
 
 const val pizza = "Pizza"
 const val dessert = "Tillbehör"
@@ -34,12 +36,14 @@ class Mapper {
                 form = DataModel.Form.WATER
             }
             dessert -> {
-
                 pic = desertPic[((Math.random()*3).toInt())]
                 form = DataModel.Form.DESSERT
             }
         }
-        return DataModel(networkDTO.name, networkDTO.topping.toString(), pic, networkDTO.price, form)
+        return DataModel(networkDTO.name,
+            if (networkDTO.topping == null) "No description yet" else networkDTO.topping.toString()
+                .removePrefix("[").removeSuffix("]")
+            , pic, networkDTO.price, form)
     }
     fun convertNetworkDTOListToDataModelList(networkDTOList: List<NetworkDTO>) : List<DataModel> {
         val list = mutableListOf<DataModel>()
@@ -72,7 +76,7 @@ class Mapper {
     private fun convertRoomDTOToDataMode(roomDTO: RoomDTO) : DataModel {
         return DataModel(
             roomDTO.name,
-            roomDTO.description ?: "No description yet",
+            roomDTO.description,
             when (roomDTO.category) {
                 pizza -> pizzaPic[((Math.random()*3).toInt())]
                 water -> waterPic[((Math.random()*3).toInt())]
