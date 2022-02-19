@@ -7,12 +7,19 @@ class RepositoryImpl(
     private val local: DataSource<List<DataModel>>
 ) : Repository<List<DataModel>> {
 
-    override suspend fun getData(isOnline: Boolean): List<DataModel> {
-        return if (isOnline) {
+    override suspend fun getData(isOnline: Boolean, category: DataModel.Form): List<DataModel> {
+        val data = if (isOnline) {
             remote
         } else {
             local
         }.getData()
+        val newData = mutableListOf<DataModel>()
+        for (i in 0 until data.size) {
+            if (data[i].form == category) {
+                newData.add(data[i])
+            }
+        }
+        return newData as List<DataModel>
     }
 
     override fun insert(list: List<DataModel>) {

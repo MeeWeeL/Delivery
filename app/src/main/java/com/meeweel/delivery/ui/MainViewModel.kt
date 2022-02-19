@@ -26,15 +26,15 @@ class MainViewModel(
         return liveDataForViewToObserve
     }
 
-    fun getData(isOnline: Boolean) {
+    fun getData(isOnline: Boolean, category: DataModel.Form) {
 
         liveDataForViewToObserve.value = AppState.Loading(null)
         cancelJob()
-        viewModelCoroutineScope.launch { startDataLoading(isOnline) }
+        viewModelCoroutineScope.launch { startDataLoading(isOnline, category) }
     }
 
-    private suspend fun startDataLoading(isOnline: Boolean) = withContext(Dispatchers.IO) {
-        repository.getData(isOnline).apply {
+    private suspend fun startDataLoading(isOnline: Boolean, category: DataModel.Form) = withContext(Dispatchers.IO) {
+        repository.getData(isOnline, category).apply {
             liveDataForViewToObserve.postValue(AppState.Success(this))
             repository.insert(this)
         }
@@ -46,7 +46,7 @@ class MainViewModel(
     }
 
     private fun handleError(throwable: Throwable) {
-        TODO()
+        TODO("NEHOROSHO")
     }
 
     private fun cancelJob() {

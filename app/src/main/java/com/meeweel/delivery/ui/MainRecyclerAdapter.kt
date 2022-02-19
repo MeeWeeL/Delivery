@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.meeweel.delivery.R
 import com.meeweel.delivery.databinding.MainMenuRecyclerItemBinding
 import com.meeweel.delivery.model.entities.DataModel
 
@@ -44,11 +46,14 @@ class MainRecyclerAdapter :
         @SuppressLint("SetTextI18n")
         fun bind(data: DataModel) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                if (data.form == DataModel.Form.PIZZA) {
-                    binding.itemTitle.text = data.title
-                    binding.itemDescription.text = data.description
-                    binding.itemBuyButton.text = "от ${data.price} р"
-                }
+                binding.itemTitle.text = data.title
+                binding.itemDescription.text = data.description
+                binding.itemBuyButton.text = "от ${data.price} р"
+                Glide.with(this.binding.itemPicture.context)
+                    .load(data.picture)
+                    .error(R.drawable.ic_no_internet)
+                    .placeholder(R.drawable.ic_loading)
+                    .into(this.binding.itemPicture)
             }
         }
     }

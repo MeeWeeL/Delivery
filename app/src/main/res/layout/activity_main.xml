@@ -90,11 +90,6 @@
                                 android:text="@string/pizza" />
 
                             <com.google.android.material.chip.Chip
-                                android:id="@+id/main_recycler_combo_category"
-                                style="@style/main_recycler_categories_chip_style"
-                                android:text="@string/combo" />
-
-                            <com.google.android.material.chip.Chip
                                 android:id="@+id/main_recycler_desert_category"
                                 style="@style/main_recycler_categories_chip_style"
                                 android:text="@string/deserts" />
@@ -103,6 +98,11 @@
                                 android:id="@+id/main_recycler_water_category"
                                 style="@style/main_recycler_categories_chip_style"
                                 android:text="@string/water" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/main_recycler_combo_category"
+                                style="@style/main_recycler_categories_chip_style"
+                                android:text="@string/combo" />
                         </com.google.android.material.chip.ChipGroup>
                     </HorizontalScrollView>
                 </androidx.appcompat.widget.Toolbar>
@@ -113,6 +113,7 @@
             android:id="@+id/main_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/main_recycler_margin_bottom"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/main_menu_recycler_item" />

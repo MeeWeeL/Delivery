@@ -31,4 +31,5 @@
     <dimen name="banner_elevation">10dp</dimen>
     <dimen name="banner_width">240dp</dimen>
     <dimen name="banner_height">100dp</dimen>
+    <dimen name="main_recycler_margin_bottom">50dp</dimen>
 </resources>

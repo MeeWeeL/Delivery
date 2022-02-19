@@ -34,6 +34,11 @@ dependencies {
     implementation project(Modules.model)
     implementation project(Modules.repository)
 
+
+    // Glide
+    kapt Glide.compiler
+    implementation Glide.glide
+
     // AndroidX
     implementation Design.appcompat
 

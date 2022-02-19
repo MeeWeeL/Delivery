@@ -50,8 +50,18 @@ object Versions {
     const val jUnit = "4.12"
     const val runner = "1.2.0"
     const val espressoCore = "3.2.0"
+
+    // Glide
+    const val compiler = "4.12.0"
+    const val glide = "4.12.0"
 }
 
+object Glide {
+
+    const val compiler = "com.github.bumptech.glide:compiler:${Versions.compiler}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+
+}
 object Design {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"

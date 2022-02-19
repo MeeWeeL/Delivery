@@ -5,42 +5,60 @@ import com.meeweel.delivery.model.entities.NetworkDTO
 import com.meeweel.delivery.model.entities.RoomDTO
 
 // Выбрал неудачный API, который не предоставляет картинки
-const val pizzaPic = "https://yandex.ru/images/search?text=pizza&lr=10725&pos=50&img_url=https%3A%2F%2Fs3.eu-north-1.amazonaws.com%2Frestoraids%2Fmedia%2Fpizza-1.png&rpt=simage"
+val pizzaPic = arrayOf("https://static.tildacdn.com/tild3635-3633-4162-b035-633639383734/pizza-1.png",
+"https://catherineasquithgallery.com/uploads/posts/2021-03/1614548194_3-p-pitstsa-na-belom-fone-5.jpg",
+"https://trattoriauno.ru/assets/images/pizza/gornayanew.png")
+val desertPic = arrayOf(
+    "https://mykaleidoscope.ru/uploads/posts/2020-01/1579896921_37-p-deserti-s-shokoladom-90.jpg",
+    "https://mykaleidoscope.ru/uploads/posts/2020-03/1583187672_31-p-tsvetnie-deserti-98.jpg",
+    "https://mykaleidoscope.ru/uploads/posts/2020-01/1579909802_30-p-krasivie-italyanskie-deserti-69.jpg")
+val waterPic = arrayOf("https://celestra.ru/uploads/photos/large/20.png",
+"https://www.cocktail-db.com/stat/img/1280/RedCurrantCosmo.jpg",
+"https://images.saymedia-content.com/.image/t_share/MTc5MTEzMDc5Mzk1NTkxMjEz/how-to-make-diet-shakes.jpg")
+
+const val pizza = "Pizza"
+const val dessert = "Tillbehör"
+const val water = "Dryck"
 
 class Mapper {
-    fun convertNetworkDTOToDataModel(networkDTO: NetworkDTO) : DataModel {
-        var pic = pizzaPic
+    private fun convertNetworkDTOToDataModel(networkDTO: NetworkDTO) : DataModel {
+        var pic = pizzaPic[0]
         var form = DataModel.Form.PIZZA
         when (networkDTO.category) {
-            "Pizza" -> {
-                pic = pizzaPic
+            pizza -> {
+                pic = pizzaPic[((Math.random()*3).toInt())]
                 form = DataModel.Form.PIZZA
             }
-            "Dryck" -> TODO()
-            "Tillbehör" -> TODO()
+            water -> {
+                pic = waterPic[((Math.random()*3).toInt())]
+                form = DataModel.Form.WATER
+            }
+            dessert -> {
+
+                pic = desertPic[((Math.random()*3).toInt())]
+                form = DataModel.Form.DESSERT
+            }
         }
         return DataModel(networkDTO.name, networkDTO.topping.toString(), pic, networkDTO.price, form)
     }
     fun convertNetworkDTOListToDataModelList(networkDTOList: List<NetworkDTO>) : List<DataModel> {
         val list = mutableListOf<DataModel>()
         for (item in networkDTOList) {
-            if (item.category == "Pizza") {
-                convertNetworkDTOToDataModel(item).apply {
-                    list.add(this)
-                    list.add(this) // Выбрал неудачный API, в котором мало итемов, поэтому удвою, что есть
-                }
+            convertNetworkDTOToDataModel(item).apply {
+                list.add(this)
+                list.add(this) // Выбрал неудачный API, в котором мало итемов, поэтому удвою, что есть
             }
         }
         return list
     }
-    fun convertDataModeToRoomDTO(dataModel: DataModel) : RoomDTO {
+    private fun convertDataModeToRoomDTO(dataModel: DataModel) : RoomDTO {
         return RoomDTO(
             dataModel.title,
             when (dataModel.form) {
-                DataModel.Form.PIZZA -> "Pizza"
+                DataModel.Form.PIZZA -> pizza
                 DataModel.Form.COMBO -> TODO()
-                DataModel.Form.WATER -> "Dryck"
-                DataModel.Form.DESERT -> "Tillbehör"
+                DataModel.Form.WATER -> water
+                DataModel.Form.DESSERT -> dessert
             },
             dataModel.description,
             dataModel.price
@@ -51,21 +69,21 @@ class Mapper {
             convertDataModeToRoomDTO(it)
         }
     }
-    fun convertRoomDTOToDataMode(roomDTO: RoomDTO) : DataModel {
+    private fun convertRoomDTOToDataMode(roomDTO: RoomDTO) : DataModel {
         return DataModel(
             roomDTO.name,
             roomDTO.description ?: "No description yet",
             when (roomDTO.category) {
-                "Pizza" -> pizzaPic
-                "Dryck" -> TODO()
-                "Tillbehör" -> TODO()
+                pizza -> pizzaPic[((Math.random()*3).toInt())]
+                water -> waterPic[((Math.random()*3).toInt())]
+                dessert -> desertPic[((Math.random()*3).toInt())]
                 else -> TODO()
             },
             roomDTO.price,
             when (roomDTO.category) {
-                "Pizza" -> DataModel.Form.PIZZA
-                "Dryck" -> DataModel.Form.WATER
-                "Tillbehör" -> DataModel.Form.DESERT
+                pizza -> DataModel.Form.PIZZA
+                water -> DataModel.Form.WATER
+                dessert -> DataModel.Form.DESSERT
                 else -> TODO()
             }
         )

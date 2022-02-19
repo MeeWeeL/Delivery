@@ -11,7 +11,7 @@ class DataModel(
         PIZZA,
         COMBO,
         WATER,
-        DESERT
+        DESSERT
 
     }
 }
