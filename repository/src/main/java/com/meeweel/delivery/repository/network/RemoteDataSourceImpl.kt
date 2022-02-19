@@ -1,23 +1,25 @@
-package com.meeweel.delivery.network
+package com.meeweel.delivery.repository.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.meeweel.delivery.model.entities.DataModel
 import com.meeweel.delivery.model.Mapper
-import com.meeweel.delivery.repository.DataSource
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RemoteDataSourceImpl(private val map: Mapper = Mapper()) : DataSource<List<DataModel>> {
+class RemoteDataSourceImpl(private val map: Mapper = Mapper()) :
+    com.meeweel.delivery.repository.DataSource<List<DataModel>> {
 
     override fun insertData(list: List<DataModel>) {
         TODO("Not yet implemented")
     }
 
     override suspend fun getData(): List<DataModel> {
-        return map.convertNetworkDTOListToDataModelList(getService(BaseInterceptor.interceptor).search(pizza, order))
+        return map.convertNetworkDTOListToDataModelList(getService(BaseInterceptor.interceptor).search(
+            pizza, order
+        ))
     }
 
     private fun getService(interceptor: Interceptor): ApiService {

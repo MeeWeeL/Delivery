@@ -1,4 +1,4 @@
-package com.meeweel.delivery.room
+package com.meeweel.delivery.repository.room
 
 import androidx.room.Dao
 import androidx.room.Insert

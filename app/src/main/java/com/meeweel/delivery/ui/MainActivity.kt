@@ -3,9 +3,7 @@ package com.meeweel.delivery.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.get
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.meeweel.delivery.R
 import com.meeweel.delivery.databinding.ActivityMainBinding
@@ -17,10 +15,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
 
-
-//    by lazy {
-//        ViewModelProvider(this).get(MainViewModel::class.java)
-//    }
     private val adapter: MainRecyclerAdapter = MainRecyclerAdapter()
     private val observer = Observer<AppState> {
         renderData(it)

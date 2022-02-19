@@ -1,4 +1,4 @@
-package com.meeweel.delivery.network
+package com.meeweel.delivery.repository.network
 
 import okhttp3.Interceptor
 import okhttp3.Response

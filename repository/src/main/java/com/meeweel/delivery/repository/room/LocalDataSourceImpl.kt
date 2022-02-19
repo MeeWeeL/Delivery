@@ -1,15 +1,12 @@
-package com.meeweel.delivery.room
+package com.meeweel.delivery.repository.room
 
-import androidx.room.Room
-import com.meeweel.delivery.app.App
+
 import com.meeweel.delivery.model.Mapper
 import com.meeweel.delivery.model.entities.DataModel
 import com.meeweel.delivery.repository.DataSource
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 
-class LocalDataSourceImpl(dbStorage: DBStorage) : DataSource<List<DataModel>> {
-
+class LocalDataSourceImpl(dbStorage: DBStorage) :
+    DataSource<List<DataModel>> {
     private val map = Mapper()
     private val db = dbStorage.getEntityDao()
 

@@ -1,4 +1,4 @@
-package com.meeweel.delivery.network
+package com.meeweel.delivery.repository.network
 
 import com.meeweel.delivery.model.entities.NetworkDTO
 import retrofit2.http.GET
